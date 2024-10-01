@@ -34,12 +34,6 @@ jobs:
         run: |-
           gcloud --quiet auth configure-docker
  
-      - name: Get Credentials
-        uses: google-github-actions/get-gke-credentials@v0
-        with:
-          cluster_name: multi-cluster
-          location: asia-southeast1-a
- 
       - name: Build
         run: |-
           docker build -t punisherblaine/multi-client-10-14 -t punisherblaine/multi-client-k8s-gh:${{ env.SHA }} -f ./client/Dockerfile ./client
