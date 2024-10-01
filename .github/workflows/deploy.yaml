@@ -52,7 +52,7 @@ jobs:
  
       - name: Apply
         run: |-
-          kubectl apply -f k8s
+          kubectl apply -f k8s --validate=false
           kubectl set image deployments/server-deployment server=punisherblaine/multi-server-k8s-pgfix-gh:${{ env.SHA }}
           kubectl set image deployments/client-deployment client=punisherblaine/multi-client-k8s-gh:${{ env.SHA }}
           kubectl set image deployments/worker-deployment worker=punisherblaine/multi-worker-k8s-gh:${{ env.SHA }}
