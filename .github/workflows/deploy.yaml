@@ -49,6 +49,12 @@ jobs:
           docker push punisherblaine/multi-client-k8s-gh:${{ env.SHA }}
           docker push punisherblaine/multi-server-k8s-pgfix-gh:${{ env.SHA }}
           docker push punisherblaine/multi-worker-k8s-gh:${{ env.SHA }}
+      
+      - name: Get GKE Credentials
+        run: |
+          gcloud container clusters get-credentials multi-cluster \
+          --region asia-southeast1-a \
+          --project ${{ secrets.GCP_PROJECT_ID }}
  
       - name: Apply
         run: |-
