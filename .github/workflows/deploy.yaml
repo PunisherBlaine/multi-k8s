@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - master
- 
+
 env:
   SHA: $(git rev-parse HEAD)
  
