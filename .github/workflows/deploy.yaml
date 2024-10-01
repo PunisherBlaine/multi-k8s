@@ -6,7 +6,7 @@ on:
 
 env:
   SHA: $(git rev-parse HEAD)
- 
+
 jobs:
   build:
     runs-on: ubuntu-latest
